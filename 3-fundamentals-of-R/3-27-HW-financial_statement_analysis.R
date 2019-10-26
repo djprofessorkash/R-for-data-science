@@ -26,16 +26,16 @@ revenue <- c(14574.49, 7606.46, 8611.41, 9175.41, 8058.65, 8105.44, 11496.28, 97
 expenses <- c(12051.82, 5695.07, 12319.20, 12089.72, 8658.57, 840.20, 3285.73, 5821.12, 6976.93, 16618.61, 10054.37, 3803.96)
 
 # Calculate profit for each month
-profit_per_month <- revenue - expenses
+profit_per_month <- round(revenue - expenses)
 
 # Calculate profit after tax for each month
-profit_after_tax_per_month <- (0.7 * revenue) - expenses
+profit_after_tax_per_month <- round((0.7 * revenue) - expenses)
 
 # Calculate profit margin for each month
-profit_margin_per_month <- profit_after_tax_per_month / revenue
+profit_margin_per_month <- 100 * round(profit_after_tax_per_month / revenue, 2)
 
 # Calculate mean for the year of profits after taxes
-mean_profit_after_tax = sum(profit_after_tax_per_month) / length(profit_after_tax_per_month)
+mean_profit_after_tax = round(sum(profit_after_tax_per_month) / length(profit_after_tax_per_month))
 
 # Calculate good/bad months and best/worst months by comparing element-wise after-tax profits
 good_months <- c()
